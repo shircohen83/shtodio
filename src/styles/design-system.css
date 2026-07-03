@@ -1,0 +1,17 @@
+:root {
+  /* Global Design System */
+
+  /* Brand Colors */
+  --primary-color: #A5B9B0;
+  --secondary-color: #CF7019;
+  --tertiary-color: #124076;
+
+  /* Neutral Colors */
+  --white: #FFFFFF;
+  --black: #000000;
+  --text-color: #1F2933;
+  --background-color: #FFFFFF;
+
+  /* Fonts */
+  --font-family: "Assistant", sans-serif;
+}
