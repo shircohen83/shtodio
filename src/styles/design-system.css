@@ -9,9 +9,17 @@
   /* Neutral Colors */
   --white: #FFFFFF;
   --black: #000000;
-  --text-color: #1F2933;
-  --background-color: #FFFFFF;
 
   /* Fonts */
   --font-family: "Assistant", sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+
+  background-image: url("../assets/images/background.png");
+  background-size: 100%;
+  background-position: top center;
+  background-repeat: repeat;
 }
