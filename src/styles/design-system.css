@@ -11,15 +11,45 @@
   --black: #000000;
 
   /* Fonts */
-  --font-family: "Assistant", sans-serif;
+  --font-family: "Varela Round", sans-serif;
 }
 
 body {
-  margin: 0;
+  margin: 0; /*removing spacing that is being automaticly set by the browser*/
   font-family: var(--font-family);
-
+  font-size: 16px;
   background-image: url("../assets/images/background.png");
   background-size: 100%;
   background-position: top center;
   background-repeat: repeat;
 }
+h1,
+h2,
+h3,
+h4,
+p{
+  margin: 0;
+  color: var(--tertiary-color);
+}
+/* 
+h1 {
+    margin: 0;
+    font-size: 24px;
+
+}
+
+h2 {
+    margin: 0;
+    font-size:20px ;
+
+}
+
+h3 {
+    margin: 0;
+    font-size:18px;
+
+}
+
+p {
+    margin: 0;
+} */
