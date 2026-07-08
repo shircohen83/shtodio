@@ -1,0 +1,32 @@
+.info-card {
+    position: relative; /*in order for the children (front and back) to be positioned in the card and not spread on the screen */
+    min-height: 10rem;
+    border-radius: 1.5rem;
+    background-color: var(--white);
+    cursor: pointer;
+    transition: transform .5s; /*make the round twist instead of a sharp switch of sides*/
+    transform-style: preserve-3d; /*maintain the twist of the card upon his children so front and back will twist as well*/
+}
+
+.info-card.flipped {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    background: var(--white);
+    position: absolute; 
+    inset: 0; /*causing to spread across all the card */
+    padding: 1.25rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: inherit;
+    backface-visibility: hidden;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
