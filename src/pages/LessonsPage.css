@@ -1,0 +1,39 @@
+.lesson-page {
+  display: grid;
+  justify-items: center;
+  gap: 2rem;
+  padding: 2rem 1.25rem;
+}
+
+.lesson-info-card {
+  display: grid;
+  gap: 1.5rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background-color: var(--white);
+  color: var(--tertiary-color);
+}
+
+.lesson-register-button {
+  padding: 0.9rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: var(--lighter-secondary-color);
+  color: var(--tertiary-color);
+  cursor: pointer;
+}
+
+.lesson-register-button:hover {
+  background-color: var(--secondary-color);
+}
+
+.back-home-link {
+  justify-self: start;
+  width: 2rem;
+  height: 2rem;
+}
+
+.back-home-link img {
+  width: 100%;
+  height: 100%;
+}
