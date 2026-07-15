@@ -1,0 +1,19 @@
+.home-page {
+  min-height: 100vh;
+  display: grid;
+  gap: 2rem; /*space between the logo, cards and schedule*/
+  padding: 24px;
+}
+
+.logo {
+  width: 70%;
+  justify-self: center;
+  
+}
+
+.info-cards-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}
