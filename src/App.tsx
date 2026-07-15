@@ -9,11 +9,7 @@ function App() {
   return (
    <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route
-        path="/lessons/zumba"
-        element={<h1 style={{ color: "black" }}>זומבה עובדת</h1>}
-      />
-      <Route path="/lessons/:lessonType" element={<LessonsPage />} />
+      <Route path="/lessons/:lessonId" element={<LessonsPage />} />
       {/* <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} /> */}
   </Routes>

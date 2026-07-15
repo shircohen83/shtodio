@@ -1,11 +1,14 @@
 import "./WeeklySchedule.css";
+import { Link } from "react-router";
 
 interface Lesson {
-    id: string;
-    title: string;
-    day: number;
-    startHour: number;
-    duration: number;
+  id: number;
+  lessonType: "zumba" | "kickboxing" | "general-sport";
+  title: string;
+  description: string;
+  day: number;
+  startHour: number;
+  duration: number;
 }
 
 interface WeeklyScheduleProps {
@@ -73,9 +76,9 @@ const WeeklySchedule = ({ lessons }: WeeklyScheduleProps) => {
                     const endRow = boundaries.indexOf(lesson.startHour + lesson.duration) + 2;
 
                     return (
-                        <a
+                        <Link
                             key={lesson.id}
-                            href={`/lessons/${lesson.id}`}
+                            to={`/lessons/${lesson.id}`}
                             className="lesson-card"
                             style={{
                                 gridColumn: lesson.day + 2,
@@ -83,7 +86,7 @@ const WeeklySchedule = ({ lessons }: WeeklyScheduleProps) => {
                             }}
                         >
                             {lesson.title}
-                        </a>
+                        </Link>
                     );
                 })}
             </div>
