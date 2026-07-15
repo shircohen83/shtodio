@@ -230,6 +230,112 @@ app.delete("/clients/:id", async (req, res) => {
   }
 });
 
+
+/*LESSONS DB */
+app.get("/lessons", async (_req, res) => {
+  try {
+    const lessons = await prisma.lesson.findMany({
+      orderBy: [
+        {
+          day: "asc",
+        },
+        {
+          startHour: "asc",
+        },
+      ],
+    });
+
+    res.json(lessons);
+  } catch (error) {
+    console.error("Failed to get lessons:", error);
+
+    res.status(500).json({
+      message: "Failed to get lessons",
+    });
+  }
+});
+
+app.get("/lessons/:id", async (req, res) => {
+  try {
+    const lessonId = Number(req.params.id);
+
+    if (!Number.isInteger(lessonId)) {
+      res.status(400).json({
+        message: "Invalid lesson ID",
+      });
+      return;
+    }
+
+    const lesson = await prisma.lesson.findUnique({
+      where: {
+        id: lessonId,
+      },
+    });
+
+    if (!lesson) {
+      res.status(404).json({
+        message: "Lesson not found",
+      });
+      return;
+    }
+
+    res.json(lesson);
+  } catch (error) {
+    console.error("Failed to get lesson:", error);
+
+    res.status(500).json({
+      message: "Failed to get lesson",
+    });
+  }
+});
+
+app.post("/lessons", async (req, res) => {
+  try {
+    const {
+      lessonType,
+      title,
+      description,
+      day,
+      startHour,
+      duration,
+    } = req.body;
+
+    if (
+      !lessonType ||
+      !title ||
+      !description ||
+      !Number.isInteger(day) ||
+      !Number.isInteger(startHour) ||
+      typeof duration !== "number"
+    ) {
+      res.status(400).json({
+        message: "Missing or invalid lesson details",
+      });
+      return;
+    }
+
+    const lesson = await prisma.lesson.create({
+      data: {
+        lessonType,
+        title,
+        description,
+        day,
+        startHour,
+        duration,
+      },
+    });
+
+    res.status(201).json(lesson);
+  } catch (error) {
+    console.error("Failed to create lesson:", error);
+
+    res.status(500).json({
+      message: "Failed to create lesson",
+    });
+  }
+});
+
+
 /*Activates the server, without 'listen' the server is not working */
 const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
