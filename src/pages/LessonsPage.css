@@ -1,6 +1,5 @@
 .lesson-page {
   display: grid;
-  /* grid-template-rows: auto 1fr auto; */
   padding: 2rem 1.25rem;
 }
 
@@ -19,8 +18,6 @@
 
 .lesson-register-button {
   justify-self: center;
-
-  /* width: min(100%, 20rem); */
 
   padding: 0.9rem;
   border: none;
