@@ -13,12 +13,15 @@ datasource db {
 
 
 model Client {
-  id        String      @id
-  fullName  String
-  phone     String?
-  email     String?
-  kidAge       Int?
-  createdAt DateTime @default(now())
+  id           String   @id
+  username     String   @unique
+  passwordHash String
+  parentName   String
+  phone        String
+  email        String?  @unique
+  kidName      String
+  kidAge       Int
+  createdAt    DateTime @default(now())
 }
 
 model Lesson {

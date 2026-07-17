@@ -3,6 +3,7 @@ import cors from "cors";
 import express from "express";
 import { PrismaClient } from "@prisma/client";
 import { PrismaBetterSqlite3 } from "@prisma/adapter-better-sqlite3";
+import bcrypt from "bcrypt";
 
 /*This file activates the server (like app.tsx activates the client) */
 
@@ -70,58 +71,64 @@ app.get("/clients/:id", async (req, res) => {
 /*Creating a new client and adding to the table */
 app.post("/clients", async (req, res) => {
   try {
-    const { id, fullName, phone, email, kidAge } = req.body;
+    const {
+      id,
+      username,
+      password,
+      parentName,
+      phone,
+      email,
+      kidName,
+      kidAge,
+    } = req.body;
 
-    if (typeof id !== "string" || !id.trim()) {
-      res.status(400).json({
-        message: "ID is required",
+    if (
+      !id ||
+      !username ||
+      !password ||
+      !parentName ||
+      !phone ||
+      !kidName ||
+      kidAge === undefined
+    ) {
+      return res.status(400).json({
+        message: "Missing required fields",
       });
-      return;
     }
 
-    if (!/^\d{9}$/.test(id.trim())) {
-      res.status(400).json({
-        message: "ID must contain exactly 9 digits",
-      });
-      return;
-    }
-
-    if (typeof fullName !== "string" || !fullName.trim()) {
-      res.status(400).json({
-        message: "Full name is required",
-      });
-      return;
-    }
-
-    const existingClient = await prisma.client.findUnique({
+    const existingClient = await prisma.client.findFirst({
       where: {
-        id: id.trim(),/*trim removes spaces */
+        OR: [{ id }, { username }],
       },
     });
 
     if (existingClient) {
-      res.status(409).json({
-        message: "A client with this ID already exists",
+      return res.status(409).json({
+        message: "Client already exists",
       });
-      return;
     }
 
-    const newClient = await prisma.client.create({
+    const passwordHash = await bcrypt.hash(password, 10);
+
+    const client = await prisma.client.create({
       data: {
-        id: id.trim(),
-        fullName: fullName.trim(),
-        phone: phone?.trim() || null,
-        email: email?.trim() || null,
-        kidAge: kidAge ?? null,
+        id,
+        username,
+        passwordHash,
+        parentName,
+        phone,
+        email: email || null,
+        kidName,
+        kidAge: Number(kidAge),
       },
     });
 
-    res.status(201).json(newClient);/*returns to FE that a new object was created and the json of the new client */
+    res.status(201).json({message: "Client created successfully",});
   } catch (error) {
     console.error("Failed to create client:", error);
 
     res.status(500).json({
-        message: "Failed to create client",
+      message: "Failed to create client",
     });
   }
 });
