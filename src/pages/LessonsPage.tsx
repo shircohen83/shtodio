@@ -88,11 +88,11 @@ const LessonsPage = () => {
         </p>
 
         <p>{lesson.description}</p>
-
-        <button type="button" className="lesson-register-button">
-          <h2>הרשמה לשיעור </h2>
-        </button>
       </section>
+      
+      <button type="button" className="lesson-register-button">
+        <h2>הרשמה לשיעור </h2>
+      </button>
     </main>
   );
 };

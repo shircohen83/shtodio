@@ -1,25 +1,34 @@
 .lesson-page {
   display: grid;
-  justify-items: center;
-  gap: 2rem;
+  /* grid-template-rows: auto 1fr auto; */
   padding: 2rem 1.25rem;
 }
 
 .lesson-info-card {
+  margin-top: 19vh;
+  margin-bottom: 15vh;
   display: grid;
+
   gap: 1.5rem;
   padding: 2rem;
   border-radius: 1.5rem;
+
   background-color: var(--white);
   color: var(--tertiary-color);
 }
 
 .lesson-register-button {
+  justify-self: center;
+
+  /* width: min(100%, 20rem); */
+
   padding: 0.9rem;
   border: none;
   border-radius: 1rem;
+
   background-color: var(--lighter-secondary-color);
   color: var(--tertiary-color);
+
   cursor: pointer;
 }
 
