@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import "./LessonsPage.css";
-import angleRightIcon from "../assets/icons/angle-left.svg";
-
+import angleLeftIcon from "../assets/icons/angle-left.svg";
+import { useLocation, useNavigate } from "react-router";
 
 type Lesson = {
   id: number;
@@ -24,6 +24,10 @@ const dayNames = [
 ];
 
 const LessonsPage = () => {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const { lessonId } = useParams(); /*receiving the id of the class from the url */
 
   const [lesson, setLesson] = useState<Lesson | null>(null);
@@ -54,8 +58,8 @@ const LessonsPage = () => {
   if (error) {
     return (
       <main className="lesson-page">
-        <Link to="/" className="back-home-link" title="חזרה">
-          <img src={angleRightIcon} alt="" />
+        <Link to="/" className="back-icon" title="חזרה">
+          <img src={angleLeftIcon} alt="" />
         </Link>
 
         <section className="lesson-info-card">
@@ -76,8 +80,8 @@ const LessonsPage = () => {
 
   return (
     <main className="lesson-page">
-      <Link to="/" className="back-home-link" title="חזרה">
-        <img src={angleRightIcon} alt="" />
+      <Link to="/" className="back-icon" title="חזרה">
+        <img src={angleLeftIcon} alt="" />
       </Link>
 
       <section className="lesson-info-card">
@@ -90,7 +94,8 @@ const LessonsPage = () => {
         <p>{lesson.description}</p>
       </section>
       
-      <button type="button" className="lesson-register-button">
+      <button type="button" className="register-button" 
+              onClick={() => navigate("/login", { state: { returnTo: location.pathname,},})}>
         <h2>הרשמה לשיעור </h2>
       </button>
     </main>
