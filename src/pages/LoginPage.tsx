@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import angleLeftIcon from "../assets/icons/angle-left.svg";
+import angleRightIcon from "../assets/icons/angle-right.svg";
 import "./LoginPage.css";
 
 const LoginPage = () => {
@@ -57,7 +57,7 @@ const LoginPage = () => {
   return (
     <main className="login-page">
         <Link to={returnTo} className="back-icon" title="חזרה">
-            <img src={angleLeftIcon} alt="" />
+            <img src={angleRightIcon} alt="" />
         </Link>
 
         <h1 className="login-title">התחברות</h1>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
-import angleLeftIcon from "../assets/icons/angle-left.svg";
+import angleRightIcon from "../assets/icons/angle-right.svg";
 import "./SignUpPage.css";
 
 interface NavigationState {
@@ -81,7 +81,7 @@ const SignUpPage = () => {
   return (
     <main className="signup-page">
       <Link to="/login" state={{ returnTo }} className="back-icon" title="חזרה">
-        <img src={angleLeftIcon} alt="" />
+        <img src={angleRightIcon} alt="" />
       </Link>
 
       <h1 className="signup-title">יצירת משתמש חדש</h1>

@@ -17,6 +17,7 @@
 
 body {
   margin: 0; /*removing spacing that is being automaticly set by the browser*/
+  direction: rtl;
   font-family: var(--font-family);
   font-size: 16px;
   background-image: url("../assets/images/background.png");
