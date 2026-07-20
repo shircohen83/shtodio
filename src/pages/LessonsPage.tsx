@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router";
 import "./LessonsPage.css";
-import angleLeftIcon from "../assets/icons/angle-left.svg";
+import angleRightIcon from "../assets/icons/angle-right.svg";
 import { useLocation, useNavigate } from "react-router";
 
 type Lesson = {
@@ -59,7 +59,7 @@ const LessonsPage = () => {
     return (
       <main className="lesson-page">
         <Link to="/" className="back-icon" title="חזרה">
-          <img src={angleLeftIcon} alt="" />
+          <img src={angleRightIcon} alt="" />
         </Link>
 
         <section className="lesson-info-card">
@@ -81,7 +81,7 @@ const LessonsPage = () => {
   return (
     <main className="lesson-page">
       <Link to="/" className="back-icon" title="חזרה">
-        <img src={angleLeftIcon} alt="" />
+        <img src={angleRightIcon} alt="" />
       </Link>
 
       <section className="lesson-info-card">
