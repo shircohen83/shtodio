@@ -3,6 +3,8 @@ import "./styles/design-system.css";
 import { Routes, Route } from "react-router";
 import HomePage from "./pages/HomePage";
 import LessonsPage from "./pages/LessonsPage";
+import SignUpPage from "./pages/SignUpPage";
+import LoginPage from "./pages/LoginPage";
 
 
 function App() {
@@ -10,8 +12,9 @@ function App() {
    <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/lessons/:lessonId" element={<LessonsPage />} />
-      {/* <Route path="/login" element={<LoginPage />} />
-      <Route path="/register" element={<RegisterPage />} /> */}
+      <Route path="/signup" element={<SignUpPage />} />
+      <Route path="/login" element={<LoginPage />} />
+      {/* <Route path="/register" element={<RegisterPage />} /> */}
   </Routes>
   );
 }
