@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import angleLeftIcon from "../assets/icons/angle-left.svg";
+import "./SignUpPage.css";
 
 interface NavigationState {
   returnTo?: string;
@@ -83,97 +84,81 @@ const SignUpPage = () => {
         <img src={angleLeftIcon} alt="" />
       </Link>
 
-      <h1>יצירת משתמש חדש</h1>
+      <h1 className="signup-title">יצירת משתמש חדש</h1>
 
       <section className="signup-card">
-        <label>
-          תעודת זהות
-          <input
-            value={formData.id}
-            onChange={(event) =>
-              handleChange("id", event.target.value)
-            }
-          />
-        </label>
+        <h4>תעודת זהות</h4>
+        <input
+          value={formData.id}
+          onChange={(event) =>
+            handleChange("id", event.target.value)
+          }
+        />
 
-        <label>
-          שם משתמש
-          <input
-            value={formData.username}
-            onChange={(event) =>
-              handleChange("username", event.target.value)
-            }
-          />
-        </label>
+        <h4>שם משתמש</h4>
+        <input
+          value={formData.username}
+          onChange={(event) =>
+            handleChange("username", event.target.value)
+          }
+        />
 
-        <label>
-          סיסמה
-          <input
-            type="password"
-            value={formData.password}
-            onChange={(event) =>
-              handleChange("password", event.target.value)
-            }
-          />
-        </label>
+        <h4>סיסמה</h4>
+        <input
+          type="password"
+          value={formData.password}
+          onChange={(event) =>
+            handleChange("password", event.target.value)
+          }
+        />
 
-        <label>
-          שם ההורה
-          <input
-            value={formData.parentName}
-            onChange={(event) =>
-              handleChange("parentName", event.target.value)
-            }
-          />
-        </label>
+        <h4>שם ההורה</h4>
+        <input
+          value={formData.parentName}
+          onChange={(event) =>
+            handleChange("parentName", event.target.value)
+          }
+        />
 
-        <label>
-          טלפון
-          <input
-            type="tel"
-            value={formData.phone}
-            onChange={(event) =>
-              handleChange("phone", event.target.value)
-            }
-          />
-        </label>
+        <h4>טלפון</h4>
+        <input
+          type="tel"
+          value={formData.phone}
+          onChange={(event) =>
+            handleChange("phone", event.target.value)
+          }
+        />
 
-        <label>
-          אימייל — לא חובה
-          <input
-            type="email"
-            value={formData.email}
-            onChange={(event) =>
-              handleChange("email", event.target.value)
-            }
-          />
-        </label>
+        <h4>אימייל</h4>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(event) =>
+            handleChange("email", event.target.value)
+          }
+        />
 
-        <label>
-          שם הילד
-          <input
-            value={formData.kidName}
-            onChange={(event) =>
-              handleChange("kidName", event.target.value)
-            }
-          />
-        </label>
+        <h4>שם הילד</h4>
+        <input
+          value={formData.kidName}
+          onChange={(event) =>
+            handleChange("kidName", event.target.value)
+          }
+        />
 
-        <label>
-          גיל הילד
-          <input
-            type="number"
-            value={formData.kidAge}
-            onChange={(event) =>
-              handleChange("kidAge", event.target.value)
-            }
-          />
-        </label>
+        <h4>גיל הילד</h4>
+        <input
+          type="number"
+          value={formData.kidAge}
+          onChange={(event) =>
+            handleChange("kidAge", event.target.value)
+          }
+        />
 
-        {error && <p>{error}</p>}
+        {error && <p className="signup-error">{error}</p>}
 
-        <button type="button" onClick={handleSubmit}>
-          יצירת משתמש
+        <button type="button" className="register-button" onClick={handleSubmit}>
+            <h2> יצירת משתמש </h2> 
         </button>
       </section>
     </main>
