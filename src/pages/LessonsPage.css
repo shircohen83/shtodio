@@ -16,30 +16,3 @@
   color: var(--tertiary-color);
 }
 
-.lesson-register-button {
-  justify-self: center;
-
-  padding: 0.9rem;
-  border: none;
-  border-radius: 1rem;
-
-  background-color: var(--lighter-secondary-color);
-  color: var(--tertiary-color);
-
-  cursor: pointer;
-}
-
-.lesson-register-button:hover {
-  background-color: var(--secondary-color);
-}
-
-.back-home-link {
-  justify-self: start;
-  width: 2rem;
-  height: 2rem;
-}
-
-.back-home-link img {
-  width: 100%;
-  height: 100%;
-}
