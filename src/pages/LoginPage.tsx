@@ -56,46 +56,43 @@ const LoginPage = () => {
 
   return (
     <main className="login-page">
-      <Link to={ returnTo } className="back-icon" title="חזרה">
-        <img src={angleLeftIcon} alt="" />
-      </Link>
-      <h1>התחברות</h1>
+        <Link to={returnTo} className="back-icon" title="חזרה">
+            <img src={angleLeftIcon} alt="" />
+        </Link>
 
-      <section className="login-card">
-        <label>
-          שם משתמש
-          <input
-            value={loginData.username}
-            onChange={(event) =>
-              handleChange("username", event.target.value)
-            }
-          />
-        </label>
+        <h1 className="login-title">התחברות</h1>
 
-        <label>
-          סיסמה
-          <input
-            type="password"
-            value={loginData.password}
-            onChange={(event) =>
-              handleChange("password", event.target.value)
-            }
-          />
-        </label>
+        <section className="login-card">
+            <h3>שם משתמש</h3>
+            <input
+                value={loginData.username}
+                onChange={(event) =>
+                handleChange("username", event.target.value)
+                }
+            />
+        
+            <h3>סיסמה</h3>
+            <input
+                type="password"
+                value={loginData.password}
+                onChange={(event) =>
+                handleChange("password", event.target.value)
+                }
+            />
 
-        {error && <p className="login-error">{error}</p>}
+            {error && <p className="login-error">{error}</p>}
 
-        <button type="button" className="register-button" onClick={handleLogin}>
-            <h2>התחבר</h2>
-        </button>
+            <button type="button" className="register-button" onClick={handleLogin}>
+                <h2>התחבר</h2>
+            </button>
 
-        <p>
-          עוד לא רשום במערכת?{" "}
-          <Link to="/signup" state={{ returnTo }}>הירשם</Link>
-        </p>
+            <h4 >
+            עוד לא רשום במערכת?{" "}
+            <Link to="/signup" className="login-register-link" state={{ returnTo }}>הירשם</Link>
+            </h4>
       </section>
     </main>
   );
-};
+}
 
 export default LoginPage;

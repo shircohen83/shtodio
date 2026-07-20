@@ -4,57 +4,34 @@
 }
 
 .login-title {
-  margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin: 3rem 0 2rem;
   text-align: center;
 }
 
 .login-card {
   display: grid;
   gap: 1.5rem;
-
   padding: 2rem;
   border-radius: 1.5rem;
-
   background-color: var(--white);
-}
-
-.login-card label {
-  display: grid;
-  gap: 0.5rem;
-
-  color: var(--tertiary-color);
 }
 
 .login-card input {
   padding: 0.8rem;
-
-  border: 1px solid var(--primary-color);
+  background-color: var(--primary-color);
   border-radius: 0.8rem;
-
-  font: inherit;
-}
-
-.login-card input:focus {
-  outline: none;
-  border-color: var(--secondary-color);
 }
 
 .login-error {
   text-align: center;
-  color: #c62828;
+  color: var(--secondary-color);
 }
 
-.login-register {
-  text-align: center;
-}
-
-.login-register a {
+.login-register-link {
   color: var(--secondary-color);
   text-decoration: none;
-  font-weight: bold;
 }
 
-.login-register a:hover {
+.login-register-link:hover {
   text-decoration: underline;
 }
