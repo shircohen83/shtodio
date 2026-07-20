@@ -110,7 +110,7 @@ app.post("/clients", async (req, res) => {
 
     const passwordHash = await bcrypt.hash(password, 10);
 
-    const client = await prisma.client.create({
+    await prisma.client.create({
       data: {
         id,
         username,
