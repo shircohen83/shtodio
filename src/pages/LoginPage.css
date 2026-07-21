@@ -10,14 +10,25 @@
 
 .login-card {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: 8rem 1fr;
+  align-items: center;
+  gap: 1.5rem 1rem;
+
   padding: 2rem;
   border-radius: 1.5rem;
   background-color: var(--white);
 }
 
+.login-card h3 {
+  justify-self: start;
+  text-align: right;
+}
+
 .login-card input {
+  width: 100%;
+  box-sizing: border-box;
   padding: 0.8rem;
+
   background-color: var(--primary-color);
   border-radius: 0.8rem;
 }
@@ -28,5 +39,5 @@
 }
 
 .login-register-link:active {
-    color: #0A66C2;
+  color: #0A66C2;
 }
