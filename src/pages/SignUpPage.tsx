@@ -129,7 +129,7 @@ const SignUpPage = () => {
           }
         />
 
-        <h4>אימייל</h4>
+        <h4 className="optional-field">אימייל</h4>
         <input
           type="email"
           value={formData.email}
