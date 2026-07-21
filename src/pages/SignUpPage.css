@@ -10,13 +10,18 @@
 
 .signup-card {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 8rem 1fr;
   align-items: center;
   gap: 1.5rem 1rem;
 
   padding: 2rem;
   border-radius: 1.5rem;
   background-color: var(--white);
+}
+
+.signup-card h4 {
+  justify-self: start;
+  text-align: right;
 }
 
 .signup-card input {
@@ -31,4 +36,3 @@
 .signup-card .register-button {
   grid-column: 1 / -1;
 }
-
