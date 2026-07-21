@@ -29,9 +29,9 @@
 
 .login-register-link {
   color: var(--secondary-color);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
-.login-register-link:hover {
-  text-decoration: underline;
+.login-register-link:active {
+    color: #0A66C2;
 }
