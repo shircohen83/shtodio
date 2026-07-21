@@ -80,13 +80,13 @@ const LoginPage = () => {
                 }
             />
 
-            {error && <p className="error-message">{error}</p>}
+            {error && <p className="error-message" style={{ gridColumn: "1 / -1" }}>{error}</p>}
 
             <button type="button" className="register-button" style={{ gridColumn: "1 / -1" }} onClick={handleLogin}>
                 <h2>התחבר</h2>
             </button>
 
-            <h4 >
+            <h4 style={{ gridColumn: "1 / -1" }}>
             עוד לא רשום במערכת?{" "}
             <Link to="/signup" className="login-register-link" state={{ returnTo }}>הירשם</Link>
             </h4>
