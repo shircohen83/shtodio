@@ -22,11 +22,6 @@
   border-radius: 0.8rem;
 }
 
-.login-error {
-  text-align: center;
-  color: var(--secondary-color);
-}
-
 .login-register-link {
   color: var(--secondary-color);
   text-decoration: underline;

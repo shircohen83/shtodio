@@ -155,9 +155,9 @@ const SignUpPage = () => {
           }
         />
 
-        {error && <p className="signup-error">{error}</p>}
+        {error && <p className="error-message" style={{ gridColumn: "1 / -1" }}> {error} </p>}
 
-        <button type="button" className="register-button" onClick={handleSubmit}>
+        <button type="button" className="register-button" style={{ gridColumn: "1 / -1" }} onClick={handleSubmit}>
             <h2> יצירת משתמש </h2> 
         </button>
       </section>

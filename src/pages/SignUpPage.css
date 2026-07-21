@@ -31,8 +31,3 @@
   background-color: var(--primary-color);
   border-radius: 0.8rem;
 }
-
-.signup-error,
-.signup-card .register-button {
-  grid-column: 1 / -1;
-}
