@@ -31,3 +31,11 @@
   background-color: var(--primary-color);
   border-radius: 0.8rem;
 }
+.signup-card h4::after {
+  content: " *";
+  color: #E53935;
+}
+
+.signup-card .optional-field::after {
+  content: "";
+}
