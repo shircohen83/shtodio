@@ -62,3 +62,8 @@ p{
 .register-button:hover {
   background-color: var(--secondary-color);
 }
+
+.error-message {
+  text-align: center;
+  color: #E53935;
+}
