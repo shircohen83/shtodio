@@ -1,17 +1,14 @@
 .signup-page {
   display: grid;
   padding: 2rem 1.25rem;
-}
 
-.signup-title {
-  margin: 3rem 0 2rem;
-  text-align: center;
 }
 
 .signup-card {
   display: grid;
+  place-items: center;
+  text-align: center;
   grid-template-columns: 8rem 1fr;
-  align-items: center;
   gap: 1.5rem 1rem;
 
   padding: 2rem;

@@ -23,36 +23,47 @@ const LoginPage = () => {
     });
   };
 
-  const handleLogin = async () => {
-    setError("");
+ const handleLogin = async () => {
+  setError("");
 
-    if (!loginData.username || !loginData.password) {
-      setError("יש למלא שם משתמש וסיסמה");
+  if (!loginData.username || !loginData.password) {
+    setError("יש למלא שם משתמש וסיסמה");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:3000/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(loginData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      setError(data.message);
       return;
     }
 
-    try {
-      const response = await fetch("http://localhost:3000/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(loginData),
-      });
+    localStorage.setItem(
+      "loggedInClient",
+      JSON.stringify(data.client),
+    );
 
-      const data = await response.json();
+    window.dispatchEvent(
+      new CustomEvent("show-success-banner", {
+        detail: "ההתחברות הצליחה!",
+      }),
+    );
 
-      if (!response.ok) {
-        setError(data.message);
-        return;
-      }
-
-      navigate(returnTo);
-    } catch (error) {
-      console.error("Failed to login:", error);
-      setError("לא הצלחנו להתחבר");
-    }
-  };
+    navigate(returnTo);
+  } catch (error) {
+    console.error("Failed to login:", error);
+    setError("לא הצלחנו להתחבר");
+  }
+};
 
   return (
     <main className="login-page">
