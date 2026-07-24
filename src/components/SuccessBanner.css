@@ -1,0 +1,44 @@
+.success-banner {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  left: 1rem;
+  z-index: 100;
+
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--primary-color);
+  color: var(--tertiary-color);
+
+  animation: slide-in 0.4s ease;
+}
+
+.success-banner h4 {
+  flex: 1;
+  text-align: center;
+}
+
+.success-banner-close {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--tertiary-color);
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
