@@ -16,3 +16,21 @@
   color: var(--tertiary-color);
 }
 
+.payment-card{
+  display: grid;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  gap: 1.5rem;
+  background-color: var(--white);
+  color: var(--tertiary-color);
+
+}
+
+.payment-card input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.8rem;
+
+  background-color: var(--primary-color);
+  border-radius: 0.8rem;
+}

@@ -3,18 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router";
 import angleRightIcon from "../assets/icons/angle-right.svg";
 import "./SignUpPage.css";
 
-interface NavigationState {
-  returnTo?: string;
-}
-
 const SignUpPage = () => {
-  const navigate = useNavigate();/* allows moving to a different page from inside a function */
-  const location = useLocation();/* allows accessing information from the previous page */
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const navigationState = location.state as NavigationState | null;
-  const returnTo = navigationState?.returnTo;
+  const returnTo = location.state?.returnTo || "/";
 
-  const [formData, setFormData] = useState({/*this object holds what the user typed */
+  const [formData, setFormData] = useState({
     id: "",
     username: "",
     password: "",
@@ -26,9 +21,9 @@ const SignUpPage = () => {
   });
 
   const [error, setError] = useState("");
+  const [signupSucceeded, setSignupSucceeded] = useState(false);
 
   const handleChange = (field: string, value: string) => {
-    /*after every change of information from any field in the form, tha value gets updated in formData obj */
     setFormData({
       ...formData,
       [field]: value,
@@ -67,98 +62,125 @@ const SignUpPage = () => {
         return;
       }
 
-      navigate("/login", {
-        state: {
-          returnTo,
-        },
-      });
+      localStorage.setItem(
+        "loggedInClient",
+        JSON.stringify(data.client),
+      );
+
+      setSignupSucceeded(true);
     } catch (error) {
       console.error("Failed to create client:", error);
       setError("לא הצלחנו ליצור את המשתמש");
     }
   };
 
+  if (signupSucceeded) {
+    return (
+      <main className="signup-page">
+        <section className="signup-card">
+          <h1 style={{ gridColumn: "1 / -1" }}>נרשמת בהצלחה!</h1>
+
+          <p style={{ gridColumn: "1 / -1" }}>
+            המשתמש שלך נוצר בהצלחה.
+            <br />
+            כעת ניתן להמשיך להרשמה לשיעור.
+          </p>
+
+          <button
+            type="button"
+            className="register-button"
+            style={{ gridColumn: "1 / -1" }}
+            onClick={() => navigate(returnTo)}
+          >
+            <h2>חזרה לעמוד החוג</h2>
+          </button>
+        </section>
+      </main>
+    );
+  }
+
   return (
     <main className="signup-page">
-      <Link to="/login" state={{ returnTo }} className="back-icon" title="חזרה">
+      <Link
+        to="/login"
+        state={{ returnTo }}
+        className="back-icon"
+        title="חזרה"
+      >
         <img src={angleRightIcon} alt="" />
       </Link>
 
-      <h1 className="signup-title">יצירת משתמש חדש</h1>
+      <h1 >יצירת משתמש חדש</h1>
 
       <section className="signup-card">
         <h4>תעודת זהות</h4>
         <input
           value={formData.id}
-          onChange={(event) =>
-            handleChange("id", event.target.value)
-          }
+          onChange={(event) => handleChange("id", event.target.value)}
         />
 
         <h4>שם משתמש</h4>
         <input
           value={formData.username}
-          onChange={(event) =>
-            handleChange("username", event.target.value)
-          }
+          onChange={(event) => handleChange("username", event.target.value)}
         />
 
         <h4>סיסמה</h4>
         <input
           type="password"
           value={formData.password}
-          onChange={(event) =>
-            handleChange("password", event.target.value)
-          }
+          onChange={(event) => handleChange("password", event.target.value)}
         />
 
         <h4>שם ההורה</h4>
         <input
           value={formData.parentName}
-          onChange={(event) =>
-            handleChange("parentName", event.target.value)
-          }
+          onChange={(event) => handleChange("parentName", event.target.value)}
         />
 
         <h4>טלפון</h4>
         <input
           type="tel"
           value={formData.phone}
-          onChange={(event) =>
-            handleChange("phone", event.target.value)
-          }
+          onChange={(event) => handleChange("phone", event.target.value)}
         />
 
         <h4 className="optional-field">אימייל</h4>
         <input
           type="email"
           value={formData.email}
-          onChange={(event) =>
-            handleChange("email", event.target.value)
-          }
+          onChange={(event) => handleChange("email", event.target.value)}
         />
 
         <h4>שם הילד</h4>
         <input
           value={formData.kidName}
-          onChange={(event) =>
-            handleChange("kidName", event.target.value)
-          }
+          onChange={(event) => handleChange("kidName", event.target.value)}
         />
 
         <h4>גיל הילד</h4>
         <input
           type="number"
           value={formData.kidAge}
-          onChange={(event) =>
-            handleChange("kidAge", event.target.value)
-          }
+          onChange={(event) => handleChange("kidAge", event.target.value)}
         />
 
-        {error && <p className="error-message" style={{ gridColumn: "1 / -1" }}> {error} </p>}
+        {error && (
+          <p
+            className="error-message"
+            style={{ gridColumn: "1 / -1" }}
+          >
+            {error}
+          </p>
+        )}
 
-        <button type="button" className="register-button" style={{ gridColumn: "1 / -1" }} onClick={handleSubmit}>
-            <h2> יצירת משתמש </h2> 
+        <button
+          type="button"
+          className="register-button"
+          style={{ gridColumn: "1 / -1" }}
+          onClick={handleSubmit}
+        >
+          <h2>יצירת משתמש</h2>
         </button>
       </section>
     </main>
