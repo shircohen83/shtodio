@@ -63,13 +63,13 @@ p{
   background-color: var(--secondary-color);
 }
 .cancel-button{
-
+  justify-self: center;
   padding: 0.9rem;
   border: none;
   border-radius: 1rem;
 
-  background-color: var(--primary-color);
-  color: var(--black);
+  background-color: var(--tertiary-color);
+  color: var(--white);
 
   cursor: pointer;
 }
