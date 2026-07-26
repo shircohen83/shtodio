@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignUpPage";
 import LoginPage from "./pages/LoginPage";
 import SuccessBanner from "./components/SuccessBanner";
 import SideMenu from "./components/SideMenu";
+import PersonalAreaPage from "./pages/PersonalAreaPage";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/lessons/:lessonId" element={<LessonsPage />} />
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/personal-area" element={<PersonalAreaPage />} />
           {/* <Route path="/register" element={<RegisterPage />} /> */}
       </Routes>
   </>
