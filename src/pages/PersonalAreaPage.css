@@ -1,0 +1,42 @@
+.personal-area-page {
+  display: grid;
+  gap: 1.5rem;
+  padding: 5rem 1.25rem;
+  color: var(--tertiary-color);
+}
+
+.personal-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.7rem;
+}
+
+.personal-tab {
+  display: grid;
+  justify-items: center;
+  gap: 0.5rem;
+
+  padding: 1rem;
+  border: 0;
+  border-radius: 1rem;
+
+  background-color: var(--white);
+  color: var(--tertiary-color);
+}
+
+.personal-tab img {
+  width: 2rem;
+  height: 2rem;
+}
+.active-tab {
+  border: 3px solid var(--tertiary-color);
+}
+
+.personal-content {
+  display: grid;
+  gap: 1rem;
+
+  padding: 1.5rem;
+  border-radius: 1.5rem;
+  background-color: var(--white);
+}

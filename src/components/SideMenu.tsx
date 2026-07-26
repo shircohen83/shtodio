@@ -14,31 +14,13 @@ import "./SideMenu.css";
 
 const SideMenu = () => {
   const navigate = useNavigate();
-  const location = useLocation();
-
   const [isOpen, setIsOpen] = useState(false);
-
-  const loggedInClient = localStorage.getItem("loggedInClient");
 
   const goTo = (path: string) => {
     setIsOpen(false);
     navigate(path);
   };
 
-  const handlePersonalArea = () => {
-    setIsOpen(false);
-
-    if (loggedInClient) {
-      navigate("/personal-area");
-      return;
-    }
-
-    navigate("/login", {
-      state: {
-        returnTo: location.pathname,
-      },
-    });
-  };
 
   return (
     <>
@@ -73,7 +55,7 @@ const SideMenu = () => {
             <button
               type="button"
               className="menu-row"
-              onClick={handlePersonalArea}
+              onClick={() => goTo("/personal-area")}
             >
               <img src={userIcon} alt="" />
               <h3>אזור אישי</h3>
