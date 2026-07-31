@@ -28,6 +28,7 @@
   width: 2rem;
   height: 2rem;
 }
+
 .active-tab {
   border: 3px solid var(--tertiary-color);
 }
