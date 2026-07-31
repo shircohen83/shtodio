@@ -47,46 +47,36 @@ p{
   height: 100%;
 }
 
-.register-button {
-  justify-self: center;
-
-  padding: 0.9rem;
-  border: none;
-  border-radius: 1rem;
-
-  background-color: var(--lighter-secondary-color);
-  color: var(--tertiary-color);
-
-  cursor: pointer;
-}
-.register-button:active {
-  background-color: var(--secondary-color);
-}
-.cancel-button{
-  justify-self: center;
-  padding: 0.9rem;
-  border: none;
-  border-radius: 1rem;
-
-  background-color: var(--tertiary-color);
-  color: var(--white);
-
-  cursor: pointer;
-}
-
-.mid-button{
-
-  padding: 0.9rem;
-  border: none;
-  border-radius: 1rem;
-
-  background-color: var(--secondary-color);
-  color: var(--black);
-
-  cursor: pointer;
-}
 
 .error-message {
   text-align: center;
   color: #E53935;
+}
+.register-button,
+.cancel-button {
+  justify-self: center;
+
+  padding: 0.9rem 1.4rem;
+  border: none;
+  border-radius: 1rem;
+
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.register-button {
+  background-color: var(--lighter-secondary-color);
+  color: var(--tertiary-color);
+}
+
+.register-button:active {
+  background-color: var(--secondary-color);
+}
+
+.cancel-button {
+  background-color: var(--tertiary-color);
+  color: var(--white);
 }
