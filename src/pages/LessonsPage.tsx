@@ -123,7 +123,7 @@ const LessonsPage = () => {
         className="back-icon"
         title="חזרה"
       >
-        <img src={angleRightIcon} alt="" />
+        <img src={angleRightIcon} alt="arrow to the right" />
       </Link>
 
       <section className="lesson-info-card">
@@ -165,20 +165,14 @@ const LessonsPage = () => {
             />
           </section>
           <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",}}>
-            <button
-              type="button"
-              className="mid-button"
-            >
-              <h3>תפוס מקום</h3>
+
+            <button type="button" className="register-button">
+              <h2>תפוס מקום</h2>
+            </button>
+            <button type="button" className="cancel-button" onClick={() => setShowPayment(false)}> 
+              חזור 
             </button>
 
-            <button
-              type="button"
-              className="cancel-button"
-              onClick={() => setShowPayment(false)}
-            >
-            <h3>חזור</h3> 
-            </button>
           </section>
         </section>
       )}
