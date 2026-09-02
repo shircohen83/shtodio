@@ -528,6 +528,83 @@ app.post("/lessons", async (req, res) => {
   }
 });
 
+/* REGISTRATIONS DB */
+app.post("/registrations", async (req, res) => {//configuring an endpoint named registrations in the server
+  try {
+    const { clientId, lessonId } = req.body;
+
+    if (!clientId || !Number.isInteger(lessonId)) {
+      res.status(400).json({
+        message: "Missing or invalid registration details",
+      });
+      return;
+    }
+
+    const client = await prisma.client.findUnique({//getting the client that want to register from DB
+      where: {
+        id: clientId,
+      },
+    });
+
+    if (!client) {
+      res.status(404).json({
+        message: "Client not found",
+      });
+      return;
+    }
+
+    const lesson = await prisma.lesson.findUnique({//getting the lesson that the client wants to register to from DB
+      where: {
+        id: lessonId,
+      },
+    });
+
+    if (!lesson) {
+      res.status(404).json({
+        message: "Lesson not found",
+      });
+      return;
+    }
+
+    const existingRegistration =
+      await prisma.registration.findUnique({
+        where: {
+          clientId_lessonId: {
+            clientId,
+            lessonId,
+          },
+        },
+      });
+
+    if (existingRegistration) {
+      res.status(409).json({
+        message: "המשתמש כבר רשום לחוג הזה",
+      });
+      return;
+    }
+
+    const registration = await prisma.registration.create({
+      data: {
+        clientId,
+        lessonId,
+      },
+    });
+
+    res.status(201).json({
+      message: "נרשמת בהצלחה לחוג",
+      registration,
+    });
+  } catch (error) {
+    console.error("Failed to create registration:", error);
+
+    res.status(500).json({
+      message: "לא הצלחנו לבצע את ההרשמה",
+    });
+  }
+});
+
+
+
 /* Activates the server. Without listen, the server is not working */
 const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
