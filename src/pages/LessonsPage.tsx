@@ -72,7 +72,7 @@ const LessonsPage = () => {
     }
   }, [location.state]);
 
-  const handleRegistration = () => {
+  const handleRegistrationRequest = () => {
     const loggedInClient =
       localStorage.getItem("loggedInClient");
 
@@ -80,13 +80,62 @@ const LessonsPage = () => {
       setShowPayment(true);
       return;
     }
-
+    /*if the user is not logged in, redirect to login page
+      Then after login, redirect back to the lesson page and open the registration form
+    */
     navigate("/login", {
       state: {
         returnTo: location.pathname,
         openRegistration: true,
       },
     });
+  };
+  
+  /* Handle submission of the registration form */
+  const handleRegistrationSubmit = async () => {
+    const loggedInClient =
+      localStorage.getItem("loggedInClient");
+
+    const client = JSON.parse(loggedInClient!);
+
+    try {
+      /* reaching for the server in localhost 3000, then to registrations endpoint
+        to do a POST http request which is create a new row of registration in DB
+      */
+      const response = await fetch(
+        "http://localhost:3000/registrations",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            clientId: client.id,
+            lessonId: lesson!.id,
+          }),
+        },
+      );
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message);
+        return;
+      }
+
+      setShowPayment(false);
+
+      window.dispatchEvent(/*activates the success banner action.
+        SuccessBanner's component listens to this event and shows the banner with the message
+        */
+        new CustomEvent("show-success-banner", {
+          detail: "נרשמת בהצלחה לשיעור!",
+        }),
+      );
+    } catch (error) {
+      console.error("Failed to register for lesson:", error);
+      setError("לא הצלחנו לבצע את ההרשמה");
+    }
   };
 
   if (error) {
@@ -141,7 +190,7 @@ const LessonsPage = () => {
         <button
           type="button"
           className="register-button"
-          onClick={handleRegistration}
+          onClick={handleRegistrationRequest}
         >
           <h2>הרשמה לשיעור</h2>
         </button>
@@ -166,7 +215,7 @@ const LessonsPage = () => {
           </section>
           <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",}}>
 
-            <button type="button" className="register-button">
+            <button type="button" className="register-button" onClick={handleRegistrationSubmit}>
               <h2>תפוס מקום</h2>
             </button>
             <button type="button" className="cancel-button" onClick={() => setShowPayment(false)}> 
