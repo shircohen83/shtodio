@@ -603,6 +603,34 @@ app.post("/registrations", async (req, res) => {//configuring an endpoint named 
   }
 });
 
+/* Gets all registrations for a specific client */
+app.get("/registrations/:clientId", async (req, res) => {
+  try {
+    const { clientId } = req.params;
+
+    const registrations = await prisma.registration.findMany({
+      /*request specific client's registrations 
+        including information about the lessons that the client is registered to 
+        (which is enabled bc lesson is a related field in relations table)
+       */
+      where: {
+        clientId,
+      },
+      include: {
+        lesson: true,
+      },
+    });
+    /*Prisma knows that to each registration connects to a lesson and a client( 2 relations configured in the relations schema ) */
+    res.json(registrations);
+  } catch (error) {
+    console.error("Failed to get registrations:", error);
+
+    res.status(500).json({
+      message: "לא הצלחנו לקבל את ההרשמות",
+    });
+  }
+});
+
 
 
 /* Activates the server. Without listen, the server is not working */
