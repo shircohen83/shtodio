@@ -1,15 +1,6 @@
 import "./WeeklySchedule.css";
 import { Link } from "react-router";
-
-interface Lesson {
-  id: number;
-  lessonType: "zumba" | "kickboxing" | "general-sport";
-  title: string;
-  description: string;
-  day: number;
-  startHour: number;
-  duration: number;
-}
+import type { Lesson } from "../types";
 
 interface WeeklyScheduleProps {
     lessons: Lesson[];

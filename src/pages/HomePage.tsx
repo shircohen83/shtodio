@@ -1,18 +1,14 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/images/logo.png";
+
 import InfoCard from "../components/InfoCard";
 import WeeklySchedule from "../components/WeeklySchedule";
+
+import type { Lesson } from "../types";
+
 import "./HomePage.css";
 
-type Lesson = {
-  id: number;
-  lessonType: "zumba" | "kickboxing" | "general-sport";
-  title: string;
-  description: string;
-  day: number;
-  startHour: number;
-  duration: number;
-};
+
 
 const HomePage = () => {
   const [lessons, setLessons] = useState<Lesson[]>([]);
