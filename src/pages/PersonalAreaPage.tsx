@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 
 import loginIcon from "../assets/icons/login.svg";
@@ -6,13 +6,10 @@ import logoutIcon from "../assets/icons/logout.svg";
 import notificationIcon from "../assets/icons/bell-notification.svg";
 import calendarIcon from "../assets/icons/calendar.svg";
 
-import "./PersonalAreaPage.css";
+import WeeklySchedule from "../components/WeeklySchedule";
+import type { Client, Registration } from "../types";
 
-type Client = {
-  id: string;
-  username: string;
-  parentName: string;
-};
+import "./PersonalAreaPage.css";
 
 type PersonalTab = "account" | "messages" | "schedule";
 
@@ -29,6 +26,35 @@ const PersonalAreaPage = () => {
         ? JSON.parse(savedClient)
         : null;
     });
+
+  const [registrations, setRegistrations] = useState<Registration[]>([]);
+
+  useEffect(() => {
+    if (!loggedInClient) {
+      setRegistrations([]);
+      return;
+    }
+
+    const getRegistrations = async () => {
+      try {
+        const response = await fetch(
+          `http://localhost:3000/registrations/${loggedInClient.id}`,
+        );
+
+        if (!response.ok) {
+          throw new Error("Failed to get registrations");
+        }
+
+        const data: Registration[] = await response.json();
+
+        setRegistrations(data);
+      } catch (error) {
+        console.error("Failed to get registrations:", error);
+      }
+    };
+
+    getRegistrations();
+  }, [loggedInClient]);
 
   const handleLogout = () => {
     localStorage.removeItem("loggedInClient");
@@ -139,10 +165,16 @@ const PersonalAreaPage = () => {
 
         {activeTab === "schedule" && (
           <>
-            <h2>מערכת השעות שלי</h2>
-
             {loggedInClient ? (
-              <p>עדיין לא נרשמת לשיעורים.</p>
+              registrations.length > 0 ? (
+                <WeeklySchedule
+                  lessons={registrations.map(
+                    (registration) => registration.lesson
+                  )}
+                />
+              ) : (
+                <p>עדיין לא נרשמת לשיעורים.</p>
+              )
             ) : (
               <p>
                 יש להתחבר כדי לצפות במערכת
