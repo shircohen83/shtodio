@@ -1,7 +1,6 @@
 .weekly-schedule {
     display: grid;
     gap: 1rem;
-    margin-top: 9rem;
 }
 
 .schedule-grid {

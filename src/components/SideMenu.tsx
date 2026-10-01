@@ -21,7 +21,7 @@ const SideMenu = () => {
     navigate(path);
   };
 
-
+  /*aside gives meaning to HTML that its a side area of the page */
   return (
     <>
       <button
@@ -55,21 +55,21 @@ const SideMenu = () => {
             <button
               type="button"
               className="menu-row"
-              onClick={() => goTo("/personal-area")}
-            >
-              <img src={userIcon} alt="" />
-              <h3>אזור אישי</h3>
-            </button>
-
-            <button
-              type="button"
-              className="menu-row"
               onClick={() => goTo("/")}
             >
               <img src={homeIcon} alt="" />
               <h3>דף הבית</h3>
             </button>
 
+            <button
+              type="button"
+              className="menu-row"
+              onClick={() => goTo("/personal-area")}
+            >
+              <img src={userIcon} alt="" />
+              <h3>אזור אישי</h3>
+            </button>
+            
             <button
               type="button"
               className="menu-row"

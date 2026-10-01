@@ -54,8 +54,6 @@ p{
 }
 .register-button,
 .cancel-button {
-  justify-self: center;
-
   padding: 0.9rem 1.4rem;
   border: none;
   border-radius: 1rem;
