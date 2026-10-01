@@ -150,7 +150,7 @@ const LessonsPage = () => {
         </Link>
 
         <section className="lesson-info-card">
-          <h1>החוג לא נמצא</h1>
+          <h1>לא בוצע רישום </h1>
           <p>{error}</p>
         </section>
       </main>
