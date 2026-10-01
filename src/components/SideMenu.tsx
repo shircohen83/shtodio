@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 
 import menu from "../assets/icons/menu.svg";
 import userIcon from "../assets/icons/user.svg";
@@ -69,7 +69,7 @@ const SideMenu = () => {
               <img src={userIcon} alt="" />
               <h3>אזור אישי</h3>
             </button>
-            
+
             <button
               type="button"
               className="menu-row"
@@ -82,7 +82,7 @@ const SideMenu = () => {
             <button
               type="button"
               className="menu-row"
-              onClick={() => goTo("/registration-rules")}
+              onClick={() => goTo("/rules")}
             >
               <img src={rulesIcon} alt="" />
               <h3>תקנון הרשמה</h3>
