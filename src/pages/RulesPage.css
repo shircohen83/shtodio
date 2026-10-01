@@ -1,0 +1,28 @@
+.rules-page {
+  display: grid;
+  padding: 2rem 1.25rem;
+}
+
+.rules-card {
+  margin-top: 19vh;
+  max-height: 60vh;
+  display: grid;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background-color: var(--white);
+  color: var(--tertiary-color);
+  overflow-y: auto;
+}
+
+.rules-card h1 {
+  text-align: center;
+}
+
+.rules-card h2 {
+  margin-top: 1rem;
+}
+
+.rules-card p {
+  line-height: 1.6;
+}

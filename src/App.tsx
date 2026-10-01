@@ -8,6 +8,7 @@ import LoginPage from "./pages/LoginPage";
 import SuccessBanner from "./components/SuccessBanner";
 import SideMenu from "./components/SideMenu";
 import PersonalAreaPage from "./pages/PersonalAreaPage";
+import RulesPage from "./pages/RulesPage";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/signup" element={<SignUpPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/personal-area" element={<PersonalAreaPage />} />
-          {/* <Route path="/register" element={<RegisterPage />} /> */}
+          <Route path="/rules" element={<RulesPage />} />
       </Routes>
   </>
   );
