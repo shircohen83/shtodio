@@ -1,0 +1,15 @@
+.contact-page {
+  display: grid;
+  gap: 2rem;
+  padding: 2rem 1.25rem;
+}
+
+.contact-page h1 {
+  text-align: center;
+}
+
+.contact-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1rem;
+}

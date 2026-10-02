@@ -9,6 +9,7 @@ import SuccessBanner from "./components/SuccessBanner";
 import SideMenu from "./components/SideMenu";
 import PersonalAreaPage from "./pages/PersonalAreaPage";
 import RulesPage from "./pages/RulesPage";
+import ContactPage from "./pages/ContactPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/personal-area" element={<PersonalAreaPage />} />
           <Route path="/rules" element={<RulesPage />} />
+          <Route path="/contact" element={<ContactPage />} />
       </Routes>
   </>
   );
