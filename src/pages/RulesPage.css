@@ -4,7 +4,7 @@
 }
 
 .rules-card {
-  margin-top: 19vh;
+  margin-top: 9vh;
   max-height: 60vh;
   display: grid;
   gap: 1rem;
@@ -15,14 +15,3 @@
   overflow-y: auto;
 }
 
-.rules-card h1 {
-  text-align: center;
-}
-
-.rules-card h2 {
-  margin-top: 1rem;
-}
-
-.rules-card p {
-  line-height: 1.6;
-}
