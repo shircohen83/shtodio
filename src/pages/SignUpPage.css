@@ -6,6 +6,7 @@
 
 .signup-card {
   display: grid;
+  margin-top: 5vh;
   place-items: center;
   text-align: center;
   grid-template-columns: 8rem 1fr;
