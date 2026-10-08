@@ -10,6 +10,7 @@ import SideMenu from "./components/SideMenu";
 import PersonalAreaPage from "./pages/PersonalAreaPage";
 import RulesPage from "./pages/RulesPage";
 import ContactPage from "./pages/ContactPage";
+import ShopPage from "./pages/ShopPage";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/personal-area" element={<PersonalAreaPage />} />
           <Route path="/rules" element={<RulesPage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/shop" element={<ShopPage />} />
       </Routes>
   </>
   );
