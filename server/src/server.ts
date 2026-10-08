@@ -633,6 +633,25 @@ app.get("/registrations/:clientId", async (req, res) => {
 
 
 
+/* PRODUCTS DB */
+app.get("/products", async (req, res) => {
+  try {
+    const products = await prisma.product.findMany();
+
+    res.json(products);
+  } catch (error) {
+    console.error("Failed to get products:", error);
+
+    res.status(500).json({
+      message: "לא הצלחנו לקבל את המוצרים",
+    });
+  }
+});
+
+
+
+
+
 /* Activates the server. Without listen, the server is not working */
 const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
