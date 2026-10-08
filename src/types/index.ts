@@ -21,3 +21,11 @@ export type Registration = {
   createdAt: string;
   lesson: Lesson;
 };
+
+export type Product = {
+  id: number;
+  name: string;
+  price: number;
+  color: string;
+  stock: number;
+};
