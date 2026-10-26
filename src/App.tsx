@@ -12,6 +12,7 @@ import RulesPage from "./pages/RulesPage";
 import ContactPage from "./pages/ContactPage";
 import ShopPage from "./pages/ShopPage";
 import ProductPage from "./pages/ProductPage";
+import MediaPage from "./pages/MediaPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/shop" element={<ShopPage />} />
           <Route path="/shop/:productId" element={<ProductPage />} />
+          <Route path="/media" element={<MediaPage />} />
       </Routes>
   </>
   );
