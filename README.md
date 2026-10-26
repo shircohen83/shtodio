@@ -1,75 +1,43 @@
-# React + TypeScript + Vite
+# SHtodio — Kids Fitness Studio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack web application for a children's fitness studio, built to make sports accessible, enjoyable, and non-competitive.
 
-Currently, two official plugins are available:
+## Technical Overview
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Frontend:** React, TypeScript, React Router, Vite, HTML and CSS.
+- **Backend:** Node.js and Express, exposing REST API endpoints for clients, lessons, registrations, and products.
+- **Database:** SQLite with Prisma ORM for database queries, relationships, and data persistence.
+- **Authentication:** Account creation and login with bcrypt password hashing; login state stored in localStorage.
+- **Data Flow:** The frontend uses `fetch` to communicate with the backend over HTTP. Express handles requests, Prisma accesses the database, and responses are returned as JSON.
+- **UI & Assets:** Reusable React components, CSS design system, responsive layouts, and locally imported product images.
+- **Development Tools:** Git, GitHub, npm, Prisma Studio, and Vite.
 
-## React Compiler
+## How SHtodio Works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Parents can explore the studio's classes and weekly schedule, create an account, or log in with an existing account. **Only logged-in users can register for classes.** If a visitor tries to register without an account, they are directed to the login page and can create an account before continuing the registration process.
 
-## Expanding the ESLint configuration
+Each registration is stored in the database and linked to both the client and the selected class. The backend checks that the client and class exist and prevents duplicate registrations for the same class. Registered classes can then be viewed in the personal area.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+**Demo mode:** Class registration is currently available without credit card details or real payment processing because the application is not yet connected to a real studio.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+The shop displays studio products with image galleries and color selection. Product information is retrieved from the backend, while product images are imported from the frontend assets.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Demo Videos
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### 1. From Visitor to Class Registration
 
-```
+Demonstrates the complete user journey: attempting to register while logged out, creating an account, continuing to class registration, and attempting to register for the same class again to demonstrate duplicate prevention.
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+![Class registration demo](docs/demos/class-registration.gif)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### 2. Exploring the Shop
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Demonstrates browsing products, opening a product details page, navigating between images, and switching product colors.
 
-```
+![Product shop demo](docs/demos/product-shop.gif)
+
+## Future Improvements
+
+- Shopping cart and checkout.
+- Payment integration with a real studio.
+- Automated tests.
