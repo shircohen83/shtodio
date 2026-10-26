@@ -37,6 +37,19 @@ import shirtBrand1 from "./shirt-brand-1.png";
 import shirtBrand2 from "./shirt-brand-2.png";
 import shirtBrand3 from "./shirt-brand-3.png";
 
+import zumba1 from "./zumba-1.jpg";
+import zumba2 from "./zumba-2.jpg";
+import zumba3 from "./zumba-3.jpg";
+import zumba4 from "./zumba-4.jpg";
+import zumba5 from "./zumba-5.jpg";
+import zumba6 from "./zumba-6.jpg";
+import kickboxing1 from "./kickboxing-1.jpg";
+import kickboxing2 from "./kickboxing-2.jpg";
+import kickboxing3 from "./kickboxing-3.jpg";
+import fitness1 from "./fitness-1.jpg";
+import fitness2 from "./fitness-2.jpg";
+import fitness3 from "./fitness-3.jpg";
+
 export {
   logo,
   background,
@@ -70,4 +83,17 @@ export {
   shirtBrand1,
   shirtBrand2,
   shirtBrand3,
+
+  zumba1,
+  zumba2, 
+  zumba3, 
+  zumba4, 
+  zumba5, 
+  zumba6,
+  kickboxing1, 
+  kickboxing2, 
+  kickboxing3,
+  fitness1, 
+  fitness2, 
+  fitness3,
 };
