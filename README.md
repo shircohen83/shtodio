@@ -10,7 +10,7 @@ A full-stack web application for a children's fitness studio, built to make spor
 - **Authentication:** Account creation and login with bcrypt password hashing; login state stored in localStorage.
 - **Data Flow:** The frontend uses `fetch` to communicate with the backend over HTTP. Express handles requests, Prisma accesses the database, and responses are returned as JSON.
 - **UI & Assets:** Reusable React components, CSS design system, responsive layouts, and locally imported product images.
-- **Development Tools:** Git, GitHub, npm, Prisma Studio, and Vite.
+- **Development Tools:** Git, GitHub, npm, Prisma Studio, AI and Vite.
 
 ## How SHtodio Works
 
@@ -28,7 +28,11 @@ The shop displays studio products with image galleries and color selection. Prod
 
 Demonstrates the complete user journey: attempting to register while logged out, creating an account, continuing to class registration, and attempting to register for the same class again to demonstrate duplicate prevention.
 
-![Class registration demo](docs/demos/class-registration.gif)
+
+https://github.com/user-attachments/assets/4dadd8c2-2bc2-4880-bbbf-c9249ddce9a2
+
+
+
 
 ### 2. Exploring the Shop
 
