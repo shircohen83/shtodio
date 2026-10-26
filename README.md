@@ -33,11 +33,16 @@ https://github.com/user-attachments/assets/4dadd8c2-2bc2-4880-bbbf-c9249ddce9a2
 
 
 
-### 2. Exploring the Shop
+### 2. Exploring the Website
 
-Demonstrates browsing products, opening a product details page, navigating between images, and switching product colors.
+Demonstrates exploring the website's pages, including the Terms & Conditions, Contact, Media Gallery, and Product Shop. 
 
-![Product shop demo](docs/demos/product-shop.gif)
+https://github.com/user-attachments/assets/2d56dd50-3c32-4885-88aa-1c53ce7bfce9
+
+
+
+
+
 
 ### 3. Login, Logout & Dynamic Class Registration Availability
 
