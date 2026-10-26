@@ -1,19 +1,8 @@
-import { Link } from "react-router";
-import angleRightIcon from "../assets/icons/angle-right.svg";
-
 import "./RulesPage.css";
 
 const RulesPage = () => {
   return (
     <main className="rules-page">
-      <Link
-        to="/"
-        className="back-icon"
-        title="חזרה"
-      >
-        <img src={angleRightIcon} alt="חזרה" />
-      </Link>
-
     <section className="rules-card">
         <h1>תקנון הרשמה</h1>
 

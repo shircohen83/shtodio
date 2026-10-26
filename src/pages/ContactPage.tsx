@@ -1,20 +1,10 @@
-import { Link } from "react-router";
-
 import InfoCard from "../components/InfoCard";
-import angleRightIcon from "../assets/icons/angle-right.svg";
 
 import "./ContactPage.css";
 
 const ContactPage = () => {
   return (
     <main className="contact-page">
-      <Link
-        to="/"
-        className="back-icon"
-        title="חזרה"
-      >
-        <img src={angleRightIcon} alt="חזרה" />
-      </Link>
 
       <h1>צור קשר</h1>
 
