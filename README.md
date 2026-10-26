@@ -33,15 +33,20 @@ https://github.com/user-attachments/assets/4dadd8c2-2bc2-4880-bbbf-c9249ddce9a2
 
 
 
-
 ### 2. Exploring the Shop
 
 Demonstrates browsing products, opening a product details page, navigating between images, and switching product colors.
 
 ![Product shop demo](docs/demos/product-shop.gif)
 
-## Future Improvements
+### 3. Login, Logout & Dynamic Class Registration Availability
 
-- Shopping cart and checkout.
-- Payment integration with a real studio.
-- Automated tests.
+Demonstrates logging in with an existing account, logging out, and how class registration availability changes based on authentication state. The registration option remains locked for logged-out users and becomes available after login, whether they log in through the Personal Area or directly from the login page linked to class registration.
+
+The authentication state is persisted in localStorage and synchronized across the relevant pages using React state, ensuring the registration UI reflects the user's current login status.
+
+
+
+https://github.com/user-attachments/assets/8b0af853-3eb5-41cb-9140-e2e12fea0549
+
+
