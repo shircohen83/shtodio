@@ -92,7 +92,7 @@ const SignUpPage = () => {
             style={{ gridColumn: "1 / -1" }}
             onClick={() => navigate(returnTo)}
           >
-            <h2>חזרה לעמוד החוג</h2>
+            <h2> לעמוד </h2>
           </button>
         </section>
       </main>
