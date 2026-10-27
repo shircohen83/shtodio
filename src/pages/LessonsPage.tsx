@@ -138,53 +138,6 @@ const LessonsPage = () => {
     }
   };
 
-  /* Handle submission of the registration form */
-  const handleRegistrationSubmit = async () => {
-    const loggedInClient =
-      localStorage.getItem("loggedInClient");
-
-    const client = JSON.parse(loggedInClient!);
-
-    try {
-      /* reaching for the server in localhost 3000, then to registrations endpoint
-        to do a POST http request which is create a new row of registration in DB
-      */
-      const response = await fetch(
-        "http://localhost:3000/registrations",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            clientId: client.id,
-            lessonId: lesson!.id,
-          }),
-        },
-      );
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        setError(data.message);
-        return;
-      }
-
-      setShowPayment(false);
-
-      window.dispatchEvent(/*activates the success banner action.
-        SuccessBanner's component listens to this event and shows the banner with the message
-        */
-        new CustomEvent("show-success-banner", {
-          detail: "נרשמת בהצלחה לשיעור!",
-        }),
-      );
-    } catch (error) {
-      console.error("Failed to register for lesson:", error);
-      setError("לא הצלחנו לבצע את ההרשמה");
-    }
-  };
-
   if (error) {
     return (
       <main className="lesson-page">
