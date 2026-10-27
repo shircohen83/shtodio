@@ -648,10 +648,6 @@ app.get("/products", async (req, res) => {
   }
 });
 
-
-
-
-
 /* Activates the server. Without listen, the server is not working */
 const server = app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);

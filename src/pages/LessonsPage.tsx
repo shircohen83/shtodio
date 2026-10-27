@@ -72,7 +72,7 @@ const LessonsPage = () => {
     }
   }, [location.state]);
 
-  const handleRegistrationRequest = () => {
+  const handleRegistration = () => {
     const loggedInClient =
       localStorage.getItem("loggedInClient");
 
@@ -90,7 +90,7 @@ const LessonsPage = () => {
       },
     });
   };
-  
+
   /* Handle submission of the registration form */
   const handleRegistrationSubmit = async () => {
     const loggedInClient =
@@ -150,7 +150,7 @@ const LessonsPage = () => {
         </Link>
 
         <section className="lesson-info-card">
-          <h1>לא בוצע רישום </h1>
+          <h1>החוג לא נמצא</h1>
           <p>{error}</p>
         </section>
       </main>
@@ -190,7 +190,7 @@ const LessonsPage = () => {
         <button
           type="button"
           className="register-button"
-          onClick={handleRegistrationRequest}
+          onClick={handleRegistration}
         >
           <h2>הרשמה לשיעור</h2>
         </button>
@@ -201,8 +201,7 @@ const LessonsPage = () => {
             type="text"
             placeholder="מספר כרטיס"
           />
-
-          <section  style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "1rem",}}>
+          <section  style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",}}>
             <input
               type="text"
               placeholder="תוקף"
@@ -213,9 +212,8 @@ const LessonsPage = () => {
               placeholder="CVV"
             />
           </section>
-          <section style={{ display: "grid", gridTemplateColumns: "2fr 1fr", gap: "1rem",}}>
-
-            <button type="button" className="register-button" onClick={handleRegistrationSubmit}>
+          <section style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem",}}>
+            <button type="button" className="register-button"  onClick={handleRegistrationSubmit}>
               <h2>תפוס מקום</h2>
             </button>
             <button type="button" className="cancel-button" onClick={() => setShowPayment(false)}> 
